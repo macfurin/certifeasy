@@ -1,0 +1,65 @@
+<%= form_for @user, :html => { :multipart => true } do |f| %>
+    <%= f.error_messages %>
+    <p>
+      <%= f.label :firstname %><br/>
+      <%= f.text_field :firstname %>
+    </p>
+    <p>
+      <%= f.label :lastname %><br/>
+      <%= f.text_field :lastname %>
+    </p>
+    <p>
+      <%= f.label :dob %><br/>
+      <%= f.date_select :dob %>
+    </p>
+    <p>
+      <%= f.label :street %><br/>
+      <%= f.text_field :street %>
+    </p>
+    <p>
+      <%= f.label :zipcode %><br/>
+      <%= f.text_field :zipcode %>
+    </p>
+    <p>
+      <%= f.label :town %><br/>
+      <%= f.text_field :town %>
+    </p>
+    <p>
+      <%= f.label :country %><br/>
+      <%= f.text_field :country %>
+    </p>
+
+    <div class="newPaperclipFiles">
+
+      <%= f.fields_for :certifs do |certif_fields| %>
+
+          <% if certif_fields.object.new_record? %>
+              <%= certif_fields.file_field :attachment %> <br/>
+          <% end %>
+
+      <% end %>
+
+    </div>
+
+    <div class="existingPaperclipFiles">
+
+          <%= f.fields_for :certifs do |certif_fields| %>
+
+              <% unless certif_fields.object.new_record? %>
+                <div class="links">
+                    <%= certif_fields.check_box :_destroy %>
+                    <%= link_to certif_fields.object.attachment_file_name, certif_fields.object.attachment.url %>
+                </div>
+               <% end %>
+
+          <% end %>
+    </div>
+
+
+    <p>
+      <%= f.label :role %><br/>
+      <%= f.collection_select :role_ids, Role.all, :id, :name_humanize %>
+    </p>
+
+    <p><%= f.submit %></p>
+<% end %>

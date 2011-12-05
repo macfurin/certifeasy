@@ -1,0 +1,50 @@
+<% title "Certifs" %>
+
+<h2>Certificats non validés</h2>
+<% if not @certifs_invalides.empty? %>
+    <table>
+      <tr>
+        <th>User email</th>
+        <th>Certificat</th>
+        <th>Valid</th>
+      </tr>
+      <% for certif in @certifs_invalides %>
+          <tr>
+            <td><%= certif.user.email %></td>
+            <td><%= link_to certif.attachment_file_name, certif.attachment.url, :target => "_blank" %></td>
+            <td><%= certif.valid_until %></td>
+            <td><%= link_to "Show", certif %></td>
+            <td><%= link_to "Edit", edit_certif_path(certif) %></td>
+            <td><%= link_to "Destroy", certif, :confirm => 'Are you sure?', :method => :delete %></td>
+            <td><%= button_to "Valider certificat", valider_certif_path(certif), :method => :put, :class => 'btn success' %></td>
+          </tr>
+      <% end %>
+    </table>
+<% else %>
+    <i>Aucun certificat non validé.</i>
+<% end %>
+
+
+<h2>Certificats validés</h2>
+<% if not @certifs_valides.empty? %>
+    <table>
+      <tr>
+        <th>User email</th>
+        <th>Certificat</th>
+        <th>Valid</th>
+      </tr>
+      <% for certif in @certifs_valides %>
+          <tr>
+            <td><%= certif.user.email %></td>
+            <td><%= link_to certif.attachment_file_name, certif.attachment.url, :target => "_blank" %></td>
+            <td><%= certif.valid_until %></td>
+            <td><%= link_to "Show", certif %></td>
+            <td><%= link_to "Edit", edit_certif_path(certif) %></td>
+            <td><%= link_to "Destroy", certif, :confirm => 'Are you sure?', :method => :delete %></td>
+            <td><%= button_to "Invalider certificat", invalider_certif_path(certif), :method => :put, :class => 'btn danger' %></td>
+          </tr>
+      <% end %>
+    </table>
+<% else %>
+    <i>Aucun certificat validé.</i>
+<% end %>

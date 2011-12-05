@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CertifEasy: <%= content_for?(:title) ? yield(:title) : "CertifEasy" %></title>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application" %>
+  <!--TODO voir pour :defaults-->
+  <%= csrf_meta_tag %>
+  <%= yield(:head) %>
+</head>
+    <body>
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <%= render :partial => 'common/menu' %>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container">
+      <div class="content">
+        <div class="row">
+          <div class="span16">
+            <%= render :partial => 'common/flashes' %>
+            <%= content_tag :h1, yield(:title) if show_title? %>
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <p>&copy;<%= Date.today.year %> MyRunApp - Created by <%= link_to "M@c", "https://github.com/macfurin" %></p>
+      </footer>
+    </div>
+</body>
+</html>

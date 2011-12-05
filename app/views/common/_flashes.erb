@@ -1,0 +1,8 @@
+<%- flash.each do |key, msg| -%>
+    <div class="alert-message <%= twitterized_type(key) %> fade in" data-alert="alert">
+      <% if msg.is_a?(String) %>
+          <%= content_tag :a, "×", :class=>"close", :href=>"#" %>
+          <%= content_tag(:p, msg) %>
+      <% end %>
+    </div>
+<%- end -%>

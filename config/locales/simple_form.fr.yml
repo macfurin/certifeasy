@@ -1,0 +1,30 @@
+fr:
+  simple_form:
+    "yes": 'Oui'
+    "no": 'Non'
+    required:
+      text: 'required'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Some errors were found, please take a look:"
+    # Labels and hints examples
+    labels:
+      password: 'Mot de passe'
+      firstname: 'Prénom'
+      lastname: 'Nom'
+      dob: 'Date de naissance'
+      street: 'Rue'
+      zipcode: 'Code postal'
+      town: 'Ville'
+      user:
+        new:
+          email: 'Email'
+        edit:
+          email: 'Email.'
+    # hints:
+    #   username: 'User name to sign in.'
+    #   password: 'No special characters, please.'
+

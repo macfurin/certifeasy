@@ -1,0 +1,33 @@
+<% title "Certif" %>
+
+<p>
+  <strong>User:</strong>
+  <%= @certif.user_id %>
+</p>
+<p>
+  <strong>Attachment File Name:</strong>
+  <%= @certif.attachment_file_name %>
+</p>
+<p>
+  <strong>Attachment Content Type:</strong>
+  <%= @certif.attachment_content_type %>
+</p>
+<p>
+  <strong>Attachment File Size:</strong>
+  <%= @certif.attachment_file_size %>
+</p>
+<p>
+  <strong>Attachment Updated At:</strong>
+  <%= @certif.attachment_updated_at %>
+</p>
+<p>
+  <strong>Valid:</strong>
+  <%= @certif.valid_until %>
+</p>
+
+<p>
+  <%= link_to "Valider certificat", complete_certif_path(@certif), :confirm => 'Are you sure?' %> |
+  <%= link_to "Edit", edit_certif_path(@certif) %> |
+  <%= link_to "Destroy", @certif, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", certifs_path %>
+</p>

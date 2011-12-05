@@ -1,0 +1,29 @@
+<h2>Inscription</h2>
+
+<p>L'inscription est très rapide et vous permets de gérer votre certificat par la suite.</p>
+
+<%= devise_error_messages! %>
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :wrapper => :inline) do |f| %>
+
+    <fieldset>
+
+      <%= f.input :firstname %>
+      <%= f.input :lastname %>
+      <%= f.input :dob, :start_year =>getBirthDateStart, :end_year=>getBirthDateEnd %>
+      <%= f.input :street %>
+      <%= f.input :zipcode %>
+      <%= f.input :town %>
+      <%#= f.input :country %>
+      <%= f.input :email %>
+      <%= f.input :password %>
+      <%= f.input :password_confirmation %>
+
+    </fieldset>
+
+    <div class="actions">
+      <%= f.button :submit, :class => 'primary' %>
+    </div>
+
+<% end %>
+
+

@@ -1,0 +1,26 @@
+<h2>Mot de passe oublié ?</h2>
+
+<%= devise_error_messages! %>
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => {:method => :post}) do |f| %>
+    <fieldset>
+
+      <div class="clearfix">
+        <%= f.label :email %>
+        <div class="input">
+          <%= f.email_field :email %>
+        </div>
+      </div>
+
+    </fieldset>
+
+
+    <div class="actions">
+      <%= f.submit "Envoyer les intructions pour un nouveau mot de passe", :class => "btn primary" %>
+      <%= link_to('Je me souviens du mot de passe', new_user_session_path, :class=>"btn")  %>
+    </div>
+
+
+<% end %>
+		
+
+

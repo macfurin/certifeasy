@@ -1,0 +1,28 @@
+<%= form_for @certif do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :attachment_file_name %><br />
+    <%= f.text_field :attachment_file_name %>
+  </p>
+  <p>
+    <%= f.label :attachment_content_type %><br />
+    <%= f.text_field :attachment_content_type %>
+  </p>
+  <p>
+    <%= f.label :attachment_file_size %><br />
+    <%= f.number_field :attachment_file_size %>
+  </p>
+  <p>
+    <%= f.label :attachment_updated_at %><br />
+    <%= f.datetime_select :attachment_updated_at %>
+  </p>
+  <p>
+    <%= f.label :valid_unitl %><br />
+    <%= f.date_select :valid_until %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

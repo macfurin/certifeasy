@@ -1,0 +1,59 @@
+<% title "Utilisateur" %>
+
+<p>
+  <strong>Prénom:</strong>
+  <%= @user.firstname %>
+</p>
+<p>
+  <strong>Nom:</strong>
+  <%= @user.lastname %>
+</p>
+<p>
+  <strong>Date de naissance:</strong>
+  <%= @user.dob %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+<p>
+  <strong>Rue:</strong>
+  <%= @user.street %>
+</p>
+<p>
+  <strong>Code postal:</strong>
+  <%= @user.zipcode %>
+</p>
+<p>
+  <strong>Ville:</strong>
+  <%= @user.country %>
+</p>
+</p>
+<% if can? :manage, @users %>
+    <p>
+      <strong>Role:</strong>
+      <ul>
+      <% @user.roles.each do |role| %>
+            <li><%= role.name.humanize %></li>
+      <% end %>
+      </ul>
+    </p>
+    <p>
+      <strong>Certificats:</strong>
+    <ul>
+    <% @user.certifs.each do |certif| %>
+            <li>
+              <%= link_to certif.attachment_file_name, certif.attachment.url %>
+              <%= button_to "Invalider certificat", invalider_certif_path(certif), :method => :put %>
+              <%= button_to "Valider certificat", valider_certif_path(certif), :method => :put %>
+            </li>
+    <% end %>
+    </ul>
+    </p>
+<% end %>
+
+
+<p>
+  <%= link_to "Editer", edit_user_path(@user) %> |
+  <%= link_to "Voir tous", users_path %>
+</p>

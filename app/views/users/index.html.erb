@@ -1,0 +1,37 @@
+<% title "Tableau de bord" %>
+
+<% if can? :manage, @users %>
+    <table>
+      <tr>
+        <th>Prénom</th>
+        <th>Nom</th>
+        <th>Email</th>
+        <th>Date de naissance</th>
+        <th>Rue</th>
+        <th>Code postal</th>
+        <th>Ville</th>
+        <th>Pays</th>
+      </tr>
+      <% for user in @users %>
+          <tr>
+            <td><%= user.firstname %></td>
+            <td><%= user.lastname %></td>
+            <td><%= user.email %></td>
+            <td><%= user.dob %></td>
+            <td><%= user.street %></td>
+            <td><%= user.zipcode %></td>
+            <td><%= user.town %></td>
+            <td><%= user.country %></td>
+            <td><%= link_to "Voir", user %></td>
+            <td><%= link_to "Editer", edit_user_path(user) %></td>
+          </tr>
+      <% end %>
+    </table>
+
+    <p>
+    <%= link_to "Roles", roles_path %>
+    </p>
+
+<% else %>
+    <p>Vous ne pouvez pas voir le tableau de bord des utlisateurs</p>
+<% end %>
