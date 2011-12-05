@@ -7,12 +7,13 @@ gem 'rails', '3.1.1'
 
 gem 'sqlite3'
 gem 'devise'
-gem 'omniauth', '0.2.6'
 gem 'cancan', '1.6.7'
 gem 'nifty-generators'
 gem 'paperclip'
 gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
 gem 'doorkeeper'
+gem 'heroku'
+
 
 
 # Gems used only for assets and not required
